@@ -1,12 +1,19 @@
-body {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 25px;
-  letter-spacing: 2px;
-  word-spacing: 2px;
-  colour: #000000
-  font-weight: normal;
-  text-decoration: none;
-  font-style: normal;
-  font-variant: normal;
-  text-transform: none;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 25px;
+      letter-spacing: 2px;
+      word-spacing: 2px;
+      colour: #000000
+      font-weight: normal;
+      text-decoration: none;
+      font-style: normal;
+      font-variant: normal;
+      text-transform: none;
+    }
+  </style>
+</head>
+</html>
