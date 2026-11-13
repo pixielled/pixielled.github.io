@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Pixielled — Games Development</title>
+
   <style>
     /* GENERAL PAGE SETTINGS */
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       min-height: 100vh;
       background: #7D99C9;
@@ -25,22 +29,28 @@
       font-size: 18px;
       letter-spacing: 1px;
       line-height: 1.6;
+
       /* Custom pixel cursor for computers */
       cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2334496E' stroke='white' stroke-width='1' d='M3 1 L3 20 L8 15 L12 22 L15 20 L11 13 L18 13 Z'/%3E%3C/svg%3E") 3 1, auto;
     }
+
     /* OUTER BLUE FRAME */
+
     .portfolio-frame {
       position: relative;
       width: 100%;
       max-width: 1260px;
       padding: 30px;
     }
+
     /* PIXEL STAR DESIGN */
+
     .pixel-star {
       position: absolute;
       width: 18px;
       height: 18px;
       background: #F2C94C;
+
       /* Creates a stepped, retro pixel-art star shape */
       clip-path: polygon(
         50% 0%, 62% 25%, 75% 25%, 75% 37%,
@@ -48,34 +58,45 @@
         50% 100%, 37% 75%, 25% 75%, 25% 62%,
         0% 50%, 25% 37%, 25% 25%, 37% 25%
       );
+
       animation: star-twinkle 2s ease-in-out infinite;
       pointer-events: none;
       z-index: 2;
     }
+
     /* STAR POSITIONS */
+
     .star-1 { top: 5px; left: 12%; animation-delay: 0s; }
     .star-2 { top: 5px; left: 38%; background: #ffffff; animation-delay: 0.7s; }
     .star-3 { top: 5px; right: 25%; animation-delay: 1.2s; }
     .star-4 { top: 5px; right: 8%; background: #DCDBBB; animation-delay: 0.4s; }
+
     .star-5 { left: 5px; top: 35%; animation-delay: 1.5s; }
     .star-6 { left: 5px; top: 72%; background: #ffffff; animation-delay: 0.9s; }
+
     .star-7 { right: 5px; top: 30%; background: #ffffff; animation-delay: 1.8s; }
     .star-8 { right: 5px; top: 70%; animation-delay: 0.3s; }
+
     .star-9 { bottom: 5px; left: 22%; background: #DCDBBB; animation-delay: 0.6s; }
     .star-10 { bottom: 5px; left: 55%; animation-delay: 1.4s; }
     .star-11 { bottom: 5px; right: 12%; background: #ffffff; animation-delay: 0.2s; }
+
     /* STAR BLINKING ANIMATION */
+
     @keyframes star-twinkle {
       0%, 100% {
         opacity: 1;
         transform: scale(1);
       }
+
       50% {
         opacity: 0.2;
         transform: scale(0.6);
       }
     }
+
     /* MAIN WHITE CONTAINER */
+
     .wiggly-container {
       width: 100%;
       min-height: 80vh;
@@ -91,7 +112,9 @@
       border-radius: 45% 55% 50% 50% / 8% 10% 12% 9%;
       animation: wiggle 6s ease-in-out infinite;
     }
+
     /* LOGO VIDEO */
+
     .logo-video {
       display: block;
       width: 100%;
@@ -99,74 +122,98 @@
       max-height: 320px;
       object-fit: contain;
     }
+
     /* INTRODUCTION TEXT */
+
     .intro {
       max-width: 700px;
     }
+
     /* PROJECT SECTION */
+
     .projects-section {
       width: 100%;
       max-width: 850px;
     }
+
     .section-heading {
       margin-bottom: 18px;
       font-size: 22px;
     }
-    /* Game-style project selection cards */
+
+    /* GAME-STYLE PROJECT CARDS */
+
     .project-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
       width: 100%;
     }
+
+    /* Cloud-shaped blue project buttons */
+
     .project-card {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      min-height: 175px;
-      padding: 22px 16px;
-      background: #DCDBBB;
+
+      min-height: 190px;
+      padding: 30px 25px;
+
+      background: #7D99C9;
       border: 3px solid #34496E;
-      border-radius: 12px;
-      color: #000000;
+
+      /* Gives the cards a fluffy cloud-like shape */
+      border-radius: 50% 50% 45% 45% / 55% 55% 40% 40%;
+
+      color: #ffffff;
       text-decoration: none;
+
       transition: transform 0.2s ease,
                   background 0.2s ease,
                   box-shadow 0.2s ease;
     }
+
     .project-card:hover,
     .project-card:focus-visible {
-      background: #F2C94C;
+      background: #34496E;
       transform: translateY(-6px);
-      box-shadow: 6px 6px 0 #34496E;
+      box-shadow: 5px 5px 0 #DCDBBB;
     }
+
     .project-card:focus-visible,
     .about-toggle:focus-visible {
       outline: 3px solid #000000;
       outline-offset: 5px;
     }
+
     .level-number {
       font-size: 13px;
       font-weight: bold;
-      color: #34496E;
+      color: #ffffff;
     }
+
     .project-name {
       font-size: 21px;
       font-weight: bold;
     }
+
     .project-description {
       font-size: 14px;
       line-height: 1.5;
     }
+
     .select-text {
       margin-top: 5px;
       font-size: 13px;
       font-weight: bold;
-      color: #34496E;
+      color: #ffffff;
     }
+
     /* ABOUT ME SECTION */
+
     .about-section {
       width: 100%;
       max-width: 700px;
@@ -175,97 +222,128 @@
       border: 3px dashed #34496E;
       border-radius: 12px;
     }
+
+    /* Cloud-shaped blue About Me button */
+
     .about-toggle {
-      padding: 12px 20px;
+      padding: 15px 30px;
+
       background: #7D99C9;
-      border: 2px solid #34496E;
-      border-radius: 8px;
+      border: 3px solid #34496E;
+
+      /* Gives the button a cloud-like shape */
+      border-radius: 50% 50% 45% 45% / 55% 55% 40% 40%;
+
       color: #ffffff;
       font: inherit;
       font-size: 16px;
       font-weight: bold;
+
       cursor: pointer;
+
       transition: background 0.2s ease,
                   transform 0.2s ease;
     }
+
     .about-toggle:hover {
       background: #34496E;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
-    /* Hidden content is shown when the button is clicked */
+
+    /* HIDDEN ABOUT ME CONTENT */
+
     .about-content {
-      display: none;
       margin-top: 20px;
       padding-top: 18px;
       border-top: 2px dashed #DCDBBB;
       text-align: left;
     }
-    .about-content.open {
-      display: block;
+
+    .about-content[hidden] {
+      display: none;
+    }
+
+    .about-content:not([hidden]) {
       animation: about-appear 0.3s ease;
     }
+
     .about-content p {
       margin-bottom: 12px;
     }
+
     @keyframes about-appear {
       from {
         opacity: 0;
         transform: translateY(-8px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
+
     /* WIGGLY CONTAINER ANIMATION */
+
     @keyframes wiggle {
       0%, 100% {
         border-radius: 45% 55% 50% 50% / 8% 10% 12% 9%;
       }
+
       50% {
         border-radius: 50% 45% 55% 45% / 10% 8% 9% 12%;
       }
     }
+
     /* CLICK SPARKLE EFFECT */
+
     .click-sparkle {
       position: fixed;
       width: 12px;
       height: 12px;
       background: #F2C94C;
+
       clip-path: polygon(
         50% 0%, 65% 35%, 100% 50%,
         65% 65%, 50% 100%, 35% 65%,
         0% 50%, 35% 35%
       );
+
       pointer-events: none;
       z-index: 9999;
       animation: sparkle-pop 0.55s ease-out forwards;
     }
+
     @keyframes sparkle-pop {
       from {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
       }
+
       to {
         opacity: 0;
         transform: translate(-50%, -50%) scale(2.5) rotate(90deg);
       }
     }
+
     /* MOBILE RESPONSIVE SETTINGS */
+
     @media (max-width: 600px) {
       body {
         padding: 12px;
         font-size: 16px;
-        /* Use the normal cursor on touch devices */
         cursor: auto;
       }
+
       .portfolio-frame {
         padding: 22px;
       }
+
       .pixel-star {
         width: 13px;
         height: 13px;
       }
+
       .wiggly-container {
         min-height: 90vh;
         padding: 24px 18px;
@@ -273,20 +351,26 @@
         border-radius: 40% 60% 45% 55% / 6% 8% 10% 7%;
         gap: 22px;
       }
+
       .logo-video {
         max-height: 240px;
       }
+
       .project-grid {
         grid-template-columns: 1fr;
       }
+
       .project-card {
         min-height: 150px;
       }
+
       .about-section {
         padding: 15px;
       }
     }
+
     /* REDUCED MOTION ACCESSIBILITY */
+
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -297,41 +381,61 @@
         transition-duration: 0.01ms !important;
       }
     }
+
   </style>
 </head>
+
 <body>
+
   <!-- OUTER BLUE FRAME -->
+
   <div class="portfolio-frame">
+
     <!-- Decorative pixel stars on the blue border -->
+
     <span class="pixel-star star-1" aria-hidden="true"></span>
     <span class="pixel-star star-2" aria-hidden="true"></span>
     <span class="pixel-star star-3" aria-hidden="true"></span>
     <span class="pixel-star star-4" aria-hidden="true"></span>
+
     <span class="pixel-star star-5" aria-hidden="true"></span>
     <span class="pixel-star star-6" aria-hidden="true"></span>
+
     <span class="pixel-star star-7" aria-hidden="true"></span>
     <span class="pixel-star star-8" aria-hidden="true"></span>
+
     <span class="pixel-star star-9" aria-hidden="true"></span>
     <span class="pixel-star star-10" aria-hidden="true"></span>
     <span class="pixel-star star-11" aria-hidden="true"></span>
+
     <!-- Main white container -->
+
     <main class="wiggly-container">
+
       <!-- Animated logo video -->
+
       <video class="logo-video" autoplay loop muted playsinline>
         <source src="logo_animation.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
+
       <!-- Introduction -->
+
       <p class="intro">
         Games Development student at Belfast Met.
         Portfolio going up shortly.
       </p>
+
       <!-- Project selection cards -->
+
       <section class="projects-section" aria-labelledby="projects-heading">
+
         <h2 class="section-heading" id="projects-heading">
           SELECT YOUR LEVEL
         </h2>
+
         <div class="project-grid">
+
           <a class="project-card" href="unreal_showreel.html">
             <span class="level-number">LEVEL 01</span>
             <span class="project-name">UNREAL ENGINE</span>
@@ -340,6 +444,7 @@
             </span>
             <span class="select-text">[ SELECT LEVEL ]</span>
           </a>
+
           <a class="project-card" href="python_showreel.html">
             <span class="level-number">LEVEL 02</span>
             <span class="project-name">PYTHON</span>
@@ -348,13 +453,19 @@
             </span>
             <span class="select-text">[ SELECT LEVEL ]</span>
           </a>
+
         </div>
+
       </section>
+
       <!-- Interactive About Me section -->
+
       <section class="about-section" aria-labelledby="about-heading">
+
         <h2 class="section-heading" id="about-heading">
           PLAYER PROFILE
         </h2>
+
         <button
           class="about-toggle"
           id="about-toggle"
@@ -364,61 +475,92 @@
         >
           + ABOUT ME
         </button>
+
         <div class="about-content" id="about-content" hidden>
+
           <p>
             Hi! I'm a Games Development student at Belfast Met.
           </p>
+
           <p>
             I'm interested in learning how games are made, experimenting
             with different programming tools and developing my skills
             through practical projects.
           </p>
+
           <p>
             This portfolio is where I can show some of the work I've
             created and track my progress as I learn more about
             games development.
           </p>
+
           <!-- You can add your own interests and favourite games here -->
+
         </div>
+
       </section>
+
     </main>
+
   </div>
+
   <!-- JavaScript for the interactive features -->
+
   <script>
+
     /* ABOUT ME BUTTON */
+
     const aboutButton = document.getElementById("about-toggle");
     const aboutContent = document.getElementById("about-content");
+
     aboutButton.addEventListener("click", function () {
+
       // Checks whether the About Me section is currently open
       const isOpen = aboutButton.getAttribute("aria-expanded") === "true";
+
       // Changes the open/closed state
       aboutButton.setAttribute("aria-expanded", !isOpen);
+
       // Shows or hides the extra information
       aboutContent.hidden = isOpen;
+
       // Changes the button text to match the section
       if (isOpen) {
         aboutButton.textContent = "+ ABOUT ME";
       } else {
         aboutButton.textContent = "- CLOSE PROFILE";
       }
+
     });
+
+
     /* PIXEL SPARKLES WHEN THE PAGE IS CLICKED */
+
     document.addEventListener("click", function (event) {
+
       // Don't create sparkles for clicks on the decorative stars
       if (event.target.classList.contains("pixel-star")) {
         return;
       }
+
       const sparkle = document.createElement("span");
+
       sparkle.classList.add("click-sparkle");
+
       // Places the sparkle where the user clicked
       sparkle.style.left = event.clientX + "px";
       sparkle.style.top = event.clientY + "px";
+
       document.body.appendChild(sparkle);
+
       // Removes the sparkle after its animation finishes
       sparkle.addEventListener("animationend", function () {
         sparkle.remove();
       });
+
     });
+
   </script>
+
 </body>
 </html>
