@@ -1,28 +1,578 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+  <!-- Sets the character encoding -->
+  <meta charset="UTF-8">
+
+  <!-- Makes the page responsive on different devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Browser tab title -->
+  <title>Pixielled — Unreal Engine Showreel</title>
+
+
   <style>
-    body{
+
+
+    /* GENERAL PAGE SETTINGS             */
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+
       background: #7D99C9;
-      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+      overflow-x: hidden;
+
+      color: #000000;
       text-align: center;
+
       font-family: "Courier New", Courier, monospace;
-      font-size: 25px;
+      font-size: 20px;
+
       letter-spacing: 2px;
       word-spacing: 2px;
-      colour: #000000
-      font-weight: normal;
-      text-decoration: none;
-      font-style: normal;
-      font-variant: normal;
-      text-transform: none;
+      line-height: 1.6;
     }
+
+
+
+    /* OUTER BLUE FRAME                  */
+
+
+    /* Creates the blue space surrounding the white container */
+
+    .portfolio-frame {
+      position: relative;
+
+      width: 100%;
+      max-width: 1260px;
+
+      padding: 30px;
+    }
+
+
+
+    /* PIXEL STAR DESIGN                 */
+
+
+    /* Creates individual pixel-style stars */
+
+    .pixel-star {
+      position: absolute;
+
+      width: 18px;
+      height: 18px;
+
+      background: #F2C94C;
+
+      /* Creates a pixelated four-point star */
+      clip-path: polygon(
+        50% 0%,
+        62% 25%,
+        75% 25%,
+        75% 37%,
+        100% 50%,
+        75% 62%,
+        75% 75%,
+        62% 75%,
+        50% 100%,
+        37% 75%,
+        25% 75%,
+        25% 62%,
+        0% 50%,
+        25% 37%,
+        25% 25%,
+        37% 25%
+      );
+
+      /* Makes stars blink continuously */
+      animation: star-twinkle 2s ease-in-out infinite;
+
+      pointer-events: none;
+
+      z-index: 2;
+    }
+
+
+
+    /* STAR POSITIONS                    */
+
+
+    /* Top stars */
+
+    .star-1 {
+      top: 5px;
+      left: 12%;
+      animation-delay: 0s;
+    }
+
+    .star-2 {
+      top: 5px;
+      left: 38%;
+      background: #ffffff;
+      animation-delay: 0.7s;
+    }
+
+    .star-3 {
+      top: 5px;
+      right: 25%;
+      animation-delay: 1.2s;
+    }
+
+    .star-4 {
+      top: 5px;
+      right: 8%;
+      background: #DCDBBB;
+      animation-delay: 0.4s;
+    }
+
+
+    /* Left stars */
+
+    .star-5 {
+      left: 5px;
+      top: 35%;
+      animation-delay: 1.5s;
+    }
+
+    .star-6 {
+      left: 5px;
+      top: 72%;
+      background: #ffffff;
+      animation-delay: 0.9s;
+    }
+
+
+    /* Right stars */
+
+    .star-7 {
+      right: 5px;
+      top: 30%;
+      background: #ffffff;
+      animation-delay: 1.8s;
+    }
+
+    .star-8 {
+      right: 5px;
+      top: 70%;
+      animation-delay: 0.3s;
+    }
+
+
+    /* Bottom stars */
+
+    .star-9 {
+      bottom: 5px;
+      left: 22%;
+      background: #DCDBBB;
+      animation-delay: 0.6s;
+    }
+
+    .star-10 {
+      bottom: 5px;
+      left: 55%;
+      animation-delay: 1.4s;
+    }
+
+    .star-11 {
+      bottom: 5px;
+      right: 12%;
+      background: #ffffff;
+      animation-delay: 0.2s;
+    }
+
+
+
+    /* STAR TWINKLING ANIMATION          */
+
+
+    @keyframes star-twinkle {
+
+      /* Stars fully visible */
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* Stars fade and shrink */
+      50% {
+        opacity: 0.2;
+        transform: scale(0.6);
+      }
+    }
+
+
+    
+    /* MAIN WHITE CONTAINER              */
+
+
+    .wiggly-container {
+
+      width: 100%;
+      min-height: 80vh;
+
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 30px;
+
+      padding: 45px 30px;
+
+      background: #ffffff;
+
+      /* Cream-coloured border */
+      border: 5px solid #DCDBBB;
+
+      /* Creates the wiggly shape */
+      border-radius: 45% 55% 50% 50% / 8% 10% 12% 9%;
+
+      /* Animates the shape */
+      animation: wiggle 6s ease-in-out infinite;
+    }
+
+
+
+    /* PAGE HEADING                      */
+
+
+    .page-title {
+
+      color: #34496E;
+
+      font-size: 32px;
+
+      font-weight: bold;
+
+      letter-spacing: 3px;
+
+      margin-bottom: 5px;
+    }
+
+
+    /* Small decorative subtitle */
+
+    .subtitle {
+
+      color: #7D99C9;
+
+      font-size: 15px;
+
+      letter-spacing: 3px;
+    }
+
+
+
+    /* SHOWREEL DESCRIPTION              */
+
+
+    .showreel-description {
+
+      max-width: 750px;
+
+      font-size: 18px;
+
+      color: #000000;
+
+      margin: 10px 0;
+    }
+
+
+    
+    /* SHOWREEL VIDEO AREA               */
+    
+
+
+
+    .video-container {
+
+      width: 100%;
+      max-width: 800px;
+
+      aspect-ratio: 16 / 9;
+
+      background: #34496E;
+
+      border: 4px solid #DCDBBB;
+
+      border-radius: 20px;
+
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #ffffff;
+
+      font-size: 16px;
+    }
+
+    .showreel-video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+    
+    /* BACK BUTTON                       */
+    
+
+    .back-button {
+
+      display: inline-block;
+
+      padding: 12px 30px;
+
+      background: #7D99C9;
+
+      color: #ffffff;
+
+      border: 2px solid #34496E;
+
+      border-radius: 999px;
+
+      font-family: inherit;
+
+      font-size: 17px;
+
+      letter-spacing: 2px;
+
+      text-decoration: none;
+
+      cursor: pointer;
+
+      transition: all 0.2s ease;
+    }
+
+
+    /* Changes button appearance when hovered over */
+
+    .back-button:hover,
+    .back-button:focus-visible {
+
+      background: #34496E;
+
+      color: #ffffff;
+
+      transform: translateY(-3px);
+    }
+
+
+    /* Keyboard accessibility */
+
+    .back-button:focus-visible {
+      outline: 3px solid #000000;
+      outline-offset: 4px;
+    }
+
+
+    
+    /* WIGGLY BORDER ANIMATION           */
+    
+
+    @keyframes wiggle {
+
+      0%, 100% {
+        border-radius: 45% 55% 50% 50% / 8% 10% 12% 9%;
+      }
+
+      50% {
+        border-radius: 50% 45% 55% 45% / 10% 8% 9% 12%;
+      }
+    }
+
+
+    
+    /* MOBILE RESPONSIVENESS             */
+    
+
+    @media (max-width: 600px) {
+
+      body {
+        padding: 12px;
+        font-size: 16px;
+      }
+
+      .portfolio-frame {
+        padding: 22px;
+      }
+
+      /* Smaller stars for mobile screens */
+
+      .pixel-star {
+        width: 13px;
+        height: 13px;
+      }
+
+      .wiggly-container {
+        min-height: 90vh;
+
+        padding: 30px 18px;
+
+        border-width: 4px;
+
+        border-radius: 40% 60% 45% 55% / 6% 8% 10% 7%;
+
+        gap: 22px;
+      }
+
+      .page-title {
+        font-size: 24px;
+      }
+
+      .subtitle {
+        font-size: 12px;
+      }
+
+      .showreel-description {
+        font-size: 15px;
+      }
+
+      .back-button {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+
+
+    
+    /* REDUCED MOTION ACCESSIBILITY      */
+    
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .wiggly-container {
+        animation: none;
+      }
+
+      .pixel-star {
+        animation: none;
+      }
+
+      .back-button {
+        transition: none;
+      }
+    }
+
   </style>
-  <meta charset="utf-8">
-  <title>Pixielled — Games Development</title>
+
 </head>
+
+
 <body>
-  <p> Unreal Engine 5.6 Showreel from 3 different games. </p>
-  <p> <button onclick="window.location='index.html'"> Back </button> </p>
+
+
+
+  <!-- OUTER BLUE FRAME                  -->
+
+
+  <div class="portfolio-frame">
+
+
+    <!-- Decorative stars on the blue border -->
+
+    <span class="pixel-star star-1" aria-hidden="true"></span>
+    <span class="pixel-star star-2" aria-hidden="true"></span>
+    <span class="pixel-star star-3" aria-hidden="true"></span>
+    <span class="pixel-star star-4" aria-hidden="true"></span>
+
+    <span class="pixel-star star-5" aria-hidden="true"></span>
+    <span class="pixel-star star-6" aria-hidden="true"></span>
+
+    <span class="pixel-star star-7" aria-hidden="true"></span>
+    <span class="pixel-star star-8" aria-hidden="true"></span>
+
+    <span class="pixel-star star-9" aria-hidden="true"></span>
+    <span class="pixel-star star-10" aria-hidden="true"></span>
+    <span class="pixel-star star-11" aria-hidden="true"></span>
+
+
+    
+    <!-- MAIN WHITE CONTAINER              -->
+  
+
+    <main class="wiggly-container">
+
+
+      <!-- Page heading -->
+
+      <h1 class="page-title">
+        Unreal Engine 5.6
+      </h1>
+
+
+      <!-- Decorative subtitle -->
+
+      <p class="subtitle">
+        GAME DEVELOPMENT SHOWREEL
+      </p>
+
+
+      <!-- Showreel description -->
+
+      <p class="showreel-description">
+
+        Unreal Engine 5.6 showreel featuring
+        projects from three different games.
+
+      </p>
+
+
+    
+      <!-- SHOWREEL VIDEO                    -->
+      
+
+      <!-- 
+        code for video ill add later
+
+
+        <video class="showreel-video" controls>
+          <source src="unreal_showreel.mp4" type="video/mp4">
+        </video>
+      -->
+
+      <div class="video-container">
+
+        ill put the video here soon
+
+      </div>
+
+
+      
+      <!-- back button                       -->
+      
+
+      <!-- Returns the visitor to the homepage -->
+
+      <a href="index.html" class="back-button">
+        ← Back to Portfolio
+      </a>
+
+
+    </main>
+
+  </div>
+
 </body>
 </html>
