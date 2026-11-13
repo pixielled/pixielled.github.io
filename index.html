@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport"
+  content="width=device-width, inital-scale=1.0">
+  <title>Wiggly Borders</title>
   <style>
+  		* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
     body{
+      min-height: 100vh;
       background: #7D99C9;
+      display: flex;
+      align-items: center;
+      padding; 25px;
+      overflow-x: hiddden;
       color: white;
       text-align: center;
       font-family: "Courier New", Courier, monospace;
@@ -17,6 +32,40 @@
       font-variant: normal;
       text-transform: none;
     }
+    .wiggly-container {
+    width: 100%
+    max-width: 1200px;
+    min-height: 80vh;
+    position: relative;
+    padding: 40px
+    background: #fff;
+    border: 5px solid #DCDBBB;
+    border-radius: 45% 55% 50% 50% / 8% 10% 12% 9%:
+    animation: wiggle 6s ease-in-out infinite;
+    }
+    
+    @keyframes wiggle {
+    		0%, 100% {
+        border-radius: 45% 55% 50% 50% / 8% 10% 12% 9%:
+        }
+        50% {
+        		border-radius: 50% 45% 55% 45% / 10% 8% 9% 12%;
+            }
+          }
+          
+    /*mobile adjustments*/
+    @media (max-width: 600px) {
+    		body {
+        padding: 15px;
+        }
+        .wiggly-container {
+        		min-height: 90vh;
+            padding: 20px;
+            border-width: 4px;
+            border-radius; 40% 60% 45% 55% / 6% 8% 10% 7%;
+            }
+        }
+      	
   </style>
   <meta charset="utf-8">
   <title>Pixielled — Games Development</title>
