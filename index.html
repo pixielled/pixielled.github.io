@@ -1,81 +1,176 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport"
-  content="width=device-width, inital-scale=1.0">
-  <title>Wiggly Borders</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pixielled — Games Development portfolio.">
+  <title>Pixielled — Games Development</title>
+
   <style>
-  		* {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      
-    body{
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       min-height: 100vh;
       background: #7D99C9;
       display: flex;
       align-items: center;
-      padding; 25px;
-      overflow-x: hiddden;
-      color: white;
+      justify-content: center;
+      padding: 25px;
+      overflow-x: hidden;
+      color: #000000;
       text-align: center;
       font-family: "Courier New", Courier, monospace;
-      font-size: 25px;
-      letter-spacing: 2px;
-      word-spacing: 2px;
-      colour: #000000
+      font-size: 18px;
       font-weight: normal;
-      text-decoration: none;
-      font-style: normal;
-      font-variant: normal;
-      text-transform: none;
+      letter-spacing: 1px;
+      line-height: 1.6;
     }
+
     .wiggly-container {
-    width: 100%
-    max-width: 1200px;
-    min-height: 80vh;
-    position: relative;
-    padding: 40px
-    background: #fff;
-    border: 5px solid #DCDBBB;
-    border-radius: 45% 55% 50% 50% / 8% 10% 12% 9%:
-    animation: wiggle 6s ease-in-out infinite;
+      width: 100%;
+      max-width: 1200px;
+      min-height: 80vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      padding: 40px;
+      background: #ffffff;
+      border: 5px solid #DCDBBB;
+      border-radius: 45% 55% 50% 50% / 8% 10% 12% 9%;
+      animation: wiggle 6s ease-in-out infinite;
     }
-    
+
+    .logo-video {
+      display: block;
+      width: 100%;
+      max-width: 520px;
+      max-height: 320px;
+      object-fit: contain;
+    }
+
+    .intro {
+      max-width: 700px;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .portfolio-button {
+      display: inline-block;
+      padding: 12px 20px;
+      border: 2px solid #34496E;
+      border-radius: 999px;
+      background: #7D99C9;
+      color: #ffffff;
+      font: inherit;
+      font-size: 16px;
+      letter-spacing: 1px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease,
+                  color 0.2s ease,
+                  transform 0.2s ease;
+    }
+
+    .portfolio-button:hover,
+    .portfolio-button:focus-visible {
+      background: #34496E;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .portfolio-button:focus-visible {
+      outline: 3px solid #000000;
+      outline-offset: 4px;
+    }
+
     @keyframes wiggle {
-    		0%, 100% {
-        border-radius: 45% 55% 50% 50% / 8% 10% 12% 9%:
-        }
-        50% {
-        		border-radius: 50% 45% 55% 45% / 10% 8% 9% 12%;
-            }
-          }
-          
-    /*mobile adjustments*/
+      0%, 100% {
+        border-radius: 45% 55% 50% 50% / 8% 10% 12% 9%;
+      }
+
+      50% {
+        border-radius: 50% 45% 55% 45% / 10% 8% 9% 12%;
+      }
+    }
+
+    /* Mobile adjustments */
     @media (max-width: 600px) {
-    		body {
+      body {
         padding: 15px;
-        }
-        .wiggly-container {
-        		min-height: 90vh;
-            padding: 20px;
-            border-width: 4px;
-            border-radius; 40% 60% 45% 55% / 6% 8% 10% 7%;
-            }
-        }
-      	
+        font-size: 16px;
+      }
+
+      .wiggly-container {
+        min-height: 90vh;
+        padding: 24px 18px;
+        border-width: 4px;
+        border-radius: 40% 60% 45% 55% / 6% 8% 10% 7%;
+        gap: 22px;
+      }
+
+      .logo-video {
+        max-height: 240px;
+      }
+
+      .portfolio-button {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+
+    /* Accessibility: respect reduced-motion settings */
+    @media (prefers-reduced-motion: reduce) {
+      .wiggly-container {
+        animation: none;
+      }
+
+      .portfolio-button {
+        transition: none;
+      }
+    }
   </style>
-  <meta charset="utf-8">
-  <title>Pixielled — Games Development</title>
 </head>
+
 <body>
-  <video autoplay loop muted playsinline style="max-width: 100%;">
-  <source src="logo_animation.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-  </video>
-  <p>Games Development student at Belfast Met. Portfolio going up shortly.</p>
-  <button onclick="window.location='unreal_showreel.html'">Unreal Showreel Here</button> <button onclick="window.location='python_showreel.html'">Python Showreel Here</button>
+
+  <main class="wiggly-container">
+
+    <video class="logo-video" autoplay loop muted playsinline>
+      <source src="logo_animation.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <p class="intro">
+      Games Development student at Belfast Met.
+      Portfolio going up shortly.
+    </p>
+
+    <nav class="button-group" aria-label="Showreels">
+
+      <a class="portfolio-button" href="unreal_showreel.html">
+        Unreal Showreel Here
+      </a>
+
+      <a class="portfolio-button" href="python_showreel.html">
+        Python Showreel Here
+      </a>
+
+    </nav>
+
+  </main>
+
 </body>
 </html>
