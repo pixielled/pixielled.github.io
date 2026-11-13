@@ -3,11 +3,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta name="description" content="Pixielled — Games Development portfolio.">
+
   <title>Pixielled — Games Development</title>
 
+
   <style>
+
+    /* ================================= */
+    /* GENERAL PAGE SETTINGS             */
+    /* ================================= */
+
     * {
       margin: 0;
       padding: 0;
@@ -17,86 +26,268 @@
     body {
       min-height: 100vh;
       background: #7D99C9;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       padding: 25px;
       overflow-x: hidden;
+
       color: #000000;
       text-align: center;
+
       font-family: "Courier New", Courier, monospace;
       font-size: 18px;
       font-weight: normal;
+
       letter-spacing: 1px;
       line-height: 1.6;
     }
+
+
+    /* ================================= */
+    /* MAIN WIGGLY CONTAINER             */
+    /* ================================= */
 
     .wiggly-container {
       width: 100%;
       max-width: 1200px;
       min-height: 80vh;
+
       position: relative;
+
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+
       gap: 28px;
       padding: 40px;
+
       background: #ffffff;
+
       border: 5px solid #DCDBBB;
+
+      /* Creates the organic wiggly shape */
       border-radius: 45% 55% 50% 50% / 8% 10% 12% 9%;
+
+      /* Continuously animates the container shape */
       animation: wiggle 6s ease-in-out infinite;
     }
 
+
+    /* ================================= */
+    /* PIXEL STAR DECORATIONS            */
+    /* ================================= */
+
+    /* 
+       Creates individual pixel-style stars.
+       Each star is made using small square pixels
+       created with CSS box-shadow.
+    */
+
+    .pixel-star {
+      position: absolute;
+
+      width: 4px;
+      height: 4px;
+
+      background: currentColor;
+
+      /* Creates the pixelated star shape */
+      box-shadow:
+        0px -8px currentColor,
+        0px -4px currentColor,
+        -4px 0px currentColor,
+        4px 0px currentColor,
+        -8px 4px currentColor,
+        -4px 4px currentColor,
+        0px 4px currentColor,
+        4px 4px currentColor,
+        8px 4px currentColor,
+        0px 8px currentColor;
+
+      /* Makes the stars blink continuously */
+      animation: twinkle 2s ease-in-out infinite;
+
+      /* Stops stars interfering with clicking buttons */
+      pointer-events: none;
+
+      z-index: 2;
+    }
+
+
+    /* Individual star positions */
+
+    .star-1 {
+      top: 8%;
+      left: 18%;
+      color: #F2C94C;
+      animation-delay: 0s;
+    }
+
+    .star-2 {
+      top: 13%;
+      right: 18%;
+      color: #DCDBBB;
+      animation-delay: 0.7s;
+    }
+
+    .star-3 {
+      top: 45%;
+      left: 5%;
+      color: #F2C94C;
+      animation-delay: 1.2s;
+    }
+
+    .star-4 {
+      top: 45%;
+      right: 5%;
+      color: #DCDBBB;
+      animation-delay: 0.4s;
+    }
+
+    .star-5 {
+      bottom: 17%;
+      left: 20%;
+      color: #F2C94C;
+      animation-delay: 1.5s;
+    }
+
+    .star-6 {
+      bottom: 12%;
+      right: 20%;
+      color: #F2C94C;
+      animation-delay: 0.9s;
+    }
+
+    .star-7 {
+      top: 25%;
+      left: 45%;
+      color: #DCDBBB;
+      animation-delay: 1.8s;
+    }
+
+    .star-8 {
+      bottom: 30%;
+      right: 38%;
+      color: #F2C94C;
+      animation-delay: 0.3s;
+    }
+
+
+    /* ================================= */
+    /* STAR TWINKLING ANIMATION          */
+    /* ================================= */
+
+    @keyframes twinkle {
+
+      /* Stars start visible */
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* Stars fade away halfway through */
+      50% {
+        opacity: 0.15;
+        transform: scale(0.6);
+      }
+    }
+
+
+    /* ================================= */
+    /* LOGO VIDEO                        */
+    /* ================================= */
+
     .logo-video {
       display: block;
+
       width: 100%;
       max-width: 520px;
       max-height: 320px;
+
       object-fit: contain;
     }
+
+
+    /* ================================= */
+    /* INTRODUCTION TEXT                 */
+    /* ================================= */
 
     .intro {
       max-width: 700px;
     }
 
+
+    /* ================================= */
+    /* BUTTON GROUP                      */
+    /* ================================= */
+
     .button-group {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+
       gap: 14px;
     }
 
+
+    /* ================================= */
+    /* PORTFOLIO BUTTONS                 */
+    /* ================================= */
+
     .portfolio-button {
       display: inline-block;
+
       padding: 12px 20px;
+
       border: 2px solid #34496E;
       border-radius: 999px;
+
       background: #7D99C9;
       color: #ffffff;
+
       font: inherit;
       font-size: 16px;
+
       letter-spacing: 1px;
+
       text-decoration: none;
       cursor: pointer;
-      transition: background-color 0.2s ease,
-                  color 0.2s ease,
-                  transform 0.2s ease;
+
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
     }
 
+
+    /* Changes button appearance when hovered over */
     .portfolio-button:hover,
     .portfolio-button:focus-visible {
+
       background: #34496E;
       color: #ffffff;
+
       transform: translateY(-2px);
     }
 
+
+    /* Keyboard accessibility */
     .portfolio-button:focus-visible {
       outline: 3px solid #000000;
       outline-offset: 4px;
     }
 
+
+    /* ================================= */
+    /* WIGGLY BORDER ANIMATION           */
+    /* ================================= */
+
     @keyframes wiggle {
+
       0%, 100% {
         border-radius: 45% 55% 50% 50% / 8% 10% 12% 9%;
       }
@@ -106,8 +297,13 @@
       }
     }
 
-    /* Mobile adjustments */
+
+    /* ================================= */
+    /* MOBILE RESPONSIVENESS             */
+    /* ================================= */
+
     @media (max-width: 600px) {
+
       body {
         padding: 15px;
         font-size: 16px;
@@ -115,9 +311,13 @@
 
       .wiggly-container {
         min-height: 90vh;
+
         padding: 24px 18px;
+
         border-width: 4px;
+
         border-radius: 40% 60% 45% 55% / 6% 8% 10% 7%;
+
         gap: 22px;
       }
 
@@ -129,34 +329,101 @@
         width: 100%;
         max-width: 280px;
       }
+
+      /* Slightly reduces the star size on mobile */
+      .pixel-star {
+        transform: scale(0.8);
+      }
     }
 
-    /* Accessibility: respect reduced-motion settings */
+
+    /* ================================= */
+    /* REDUCED MOTION ACCESSIBILITY       */
+    /* ================================= */
+
     @media (prefers-reduced-motion: reduce) {
+
+      /* Stops the container animation */
       .wiggly-container {
         animation: none;
       }
 
+      /* Stops the stars blinking */
+      .pixel-star {
+        animation: none;
+      }
+
+      /* Removes button transitions */
       .portfolio-button {
         transition: none;
       }
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+  <!-- ================================= -->
+  <!-- MAIN PORTFOLIO CONTAINER           -->
+  <!-- ================================= -->
+
   <main class="wiggly-container">
 
+
+    <!-- ================================= -->
+    <!-- PIXEL STARS                       -->
+    <!-- ================================= -->
+
+    <!-- Each span represents one decorative star -->
+
+    <span class="pixel-star star-1" aria-hidden="true"></span>
+
+    <span class="pixel-star star-2" aria-hidden="true"></span>
+
+    <span class="pixel-star star-3" aria-hidden="true"></span>
+
+    <span class="pixel-star star-4" aria-hidden="true"></span>
+
+    <span class="pixel-star star-5" aria-hidden="true"></span>
+
+    <span class="pixel-star star-6" aria-hidden="true"></span>
+
+    <span class="pixel-star star-7" aria-hidden="true"></span>
+
+    <span class="pixel-star star-8" aria-hidden="true"></span>
+
+
+    <!-- ================================= -->
+    <!-- ANIMATED LOGO                     -->
+    <!-- ================================= -->
+
     <video class="logo-video" autoplay loop muted playsinline>
+
       <source src="logo_animation.mp4" type="video/mp4">
+
       Your browser does not support the video tag.
+
     </video>
 
+
+    <!-- ================================= -->
+    <!-- INTRODUCTION                      -->
+    <!-- ================================= -->
+
     <p class="intro">
+
       Games Development student at Belfast Met.
       Portfolio going up shortly.
+
     </p>
+
+
+    <!-- ================================= -->
+    <!-- SHOWREEL BUTTONS                  -->
+    <!-- ================================= -->
 
     <nav class="button-group" aria-label="Showreels">
 
