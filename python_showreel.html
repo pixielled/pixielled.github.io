@@ -1,28 +1,261 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pixielled — Python Showreel</title>
+
   <style>
-    body{
+    /* Setting up the main page colours and font to match the rest of my portfolio */
+    body {
+      margin: 0;
+      min-height: 100vh;
       background: #7D99C9;
       color: white;
       text-align: center;
       font-family: "Courier New", Courier, monospace;
-      font-size: 25px;
+      font-size: 20px;
       letter-spacing: 2px;
       word-spacing: 2px;
-      colour: #000000
-      font-weight: normal;
+    }
+
+    /* This creates the blue border around the main content */
+    .portfolio-frame {
+      position: relative;
+      width: min(85%, 1000px);
+      margin: 50px auto;
+      padding: 35px;
+      box-sizing: border-box;
+    }
+
+    /* Adding the white wiggly container with a cream coloured border */
+    .wiggly-container {
+      position: relative;
+      z-index: 2;
+      background: #fff;
+      color: #7D99C9;
+      border: 8px solid #DCDBBB;
+      border-radius: 45% 55% 48% 52% / 55% 45% 55% 45%;
+      padding: 50px 35px;
+      animation: wiggle 6s ease-in-out infinite;
+    }
+
+    /* Making the container gently change shape so it has a playful look */
+    @keyframes wiggle {
+      0%, 100% {
+        border-radius: 45% 55% 48% 52% / 55% 45% 55% 45%;
+      }
+      50% {
+        border-radius: 55% 45% 52% 48% / 45% 55% 45% 55%;
+      }
+    }
+
+    /* Styling the main heading */
+    h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    /* Keeping the description readable and spaced out */
+    .intro-text {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    /* Creating a space for my Python showreel video */
+    .video-container {
+      width: 100%;
+      max-width: 750px;
+      margin: 30px auto;
+      aspect-ratio: 16 / 9;
+      background: #7D99C9;
+      border: 5px solid #DCDBBB;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Making sure the video fits inside its container properly */
+    .showreel-video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Styling the back button so it matches the rest of my website */
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #7D99C9;
+      color: white;
+      border: 3px solid #DCDBBB;
+      border-radius: 10px;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 16px;
+      letter-spacing: 1px;
       text-decoration: none;
-      font-style: normal;
-      font-variant: normal;
-      text-transform: none;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    /* Adding a small hover effect to make the button feel more interactive */
+    .back-button:hover {
+      background: #617FAF;
+      transform: scale(1.05);
+    }
+
+    /* These are the pixel stars that sit in the blue border around the container */
+    .pixel-star {
+      position: absolute;
+      z-index: 3;
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      clip-path: polygon(
+        50% 0%, 61% 35%, 100% 50%,
+        61% 65%, 50% 100%, 39% 65%,
+        0% 50%, 39% 35%
+      );
+      animation: twinkle 2s ease-in-out infinite;
+    }
+
+    /* Making the stars blink at slightly different speeds */
+    .star-one {
+      top: 5px;
+      left: 12%;
+      animation-delay: 0s;
+    }
+
+    .star-two {
+      top: 45%;
+      right: 5px;
+      animation-delay: 0.7s;
+    }
+
+    .star-three {
+      bottom: 5px;
+      left: 25%;
+      animation-delay: 1.2s;
+    }
+
+    .star-four {
+      bottom: 15%;
+      right: 12%;
+      animation-delay: 0.4s;
+    }
+
+    /* This makes the stars fade in and out to create a twinkling effect */
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.7);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    /* Adjusting the layout for tablets and smaller screens */
+    @media (max-width: 768px) {
+      .portfolio-frame {
+        width: 92%;
+        margin: 30px auto;
+        padding: 25px;
+      }
+
+      .wiggly-container {
+        padding: 40px 25px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .intro-text {
+        font-size: 16px;
+      }
+    }
+
+    /* Making everything fit properly on mobile screens */
+    @media (max-width: 480px) {
+      body {
+        font-size: 16px;
+      }
+
+      .portfolio-frame {
+        width: 96%;
+        padding: 18px;
+        margin: 20px auto;
+      }
+
+      .wiggly-container {
+        padding: 30px 18px;
+        border-width: 6px;
+      }
+
+      h1 {
+        font-size: 23px;
+      }
+
+      .intro-text {
+        font-size: 14px;
+      }
+
+      .pixel-star {
+        width: 13px;
+        height: 13px;
+      }
+
+      .back-button {
+        font-size: 14px;
+        padding: 10px 18px;
+      }
+    }
+
+    /* Turning off the animations if someone has reduced motion enabled */
+    @media (prefers-reduced-motion: reduce) {
+      .wiggly-container,
+      .pixel-star {
+        animation: none;
+      }
     }
   </style>
-  <meta charset="utf-8">
-  <title>Pixielled — Games Development</title>
 </head>
+
 <body>
-    <p> Python Coding Showreel from multiple years. </p>
-    <p> <button onclick="window.location='index.html'"> Back </button> </p>
+
+  <main class="portfolio-frame">
+
+    <!-- These stars are inside the blue border, rather than on top of the white container -->
+    <span class="pixel-star star-one"></span>
+    <span class="pixel-star star-two"></span>
+    <span class="pixel-star star-three"></span>
+    <span class="pixel-star star-four"></span>
+
+    <section class="wiggly-container">
+
+      <h1>Python Coding Showreel</h1>
+
+      <p class="intro-text">
+        A collection of my Python coding projects from multiple years of development.
+      </p>
+
+      <!-- This is where I can add my Python showreel video -->
+      <div class="video-container">
+        <p>Your Python showreel will go here!</p>
+      </div>
+
+      <!-- This button takes the user back to the main portfolio page -->
+      <a href="index.html" class="back-button">Back to Portfolio</a>
+
+    </section>
+  </main>
+
 </body>
 </html>
